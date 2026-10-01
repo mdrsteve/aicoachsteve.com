@@ -126,6 +126,10 @@ details .answer p:last-child { margin-bottom: 0; }
 .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 2.25rem; align-items: start; }
 .about-grid img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); }
 
+.credential { display: flex; align-items: center; gap: 1.1rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.about-grid .credential img { width: 110px; max-width: 110px; aspect-ratio: auto; object-fit: contain; border: none; border-radius: 0; flex-shrink: 0; }
+.credential p { margin-bottom: 0; color: var(--text-mid); font-size: 1rem; }
+
 /* ---- Form ---- */
 .contact-form { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; }
 .contact-form label { display: block; font-weight: 600; margin-bottom: 0.4rem; }
