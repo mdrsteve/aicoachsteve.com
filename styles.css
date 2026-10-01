@@ -1,0 +1,157 @@
+/* ============================================
+   AI Coach Steve, main stylesheet
+   Brand: Teal #1E5F5B | Terracotta #B5502E | Warm Off-White #FAF7F2
+   Audience skews non-technical and older: larger base type,
+   high contrast, generous tap targets. Do not shrink these.
+   ============================================ */
+
+:root {
+  --teal:        #1E5F5B;
+  --teal-dark:   #164A47;
+  --teal-light:  #E7F0EF;
+  --terracotta:  #B5502E;
+  --terra-dark:  #94402289;
+  --terra-light: #FBEDE7;
+  --offwhite:    #FAF7F2;
+  --white:       #FFFFFF;
+  --text-dark:   #2B2622;
+  --text-mid:    #574E47;
+  --border:      #E2D9CE;
+  --shadow:      rgba(43, 38, 34, 0.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--text-dark);
+  background: var(--white);
+  -webkit-text-size-adjust: 100%;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; color: var(--teal); line-height: 1.3; }
+h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+h2 { font-size: 1.95rem; margin-bottom: 1.1rem; }
+h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-dark); }
+p  { margin-bottom: 1.1rem; }
+strong { color: var(--text-dark); }
+
+a { color: var(--terracotta); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: var(--terra-dark); }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--terracotta); outline-offset: 2px; border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0; background: var(--teal); color: #fff;
+  padding: 0.75rem 1.25rem; z-index: 200; text-decoration: none;
+}
+.skip-link:focus { left: 0; }
+
+/* ---- Layout ---- */
+.container { max-width: 940px; margin: 0 auto; padding: 0 1.5rem; }
+section { padding: 4rem 0; }
+section.alt { background: var(--offwhite); }
+.lede { font-size: 1.15rem; color: var(--text-mid); }
+
+/* ---- Nav ---- */
+.site-header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 940px; margin: 0 auto; padding: 0.85rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.nav-logo { font-family: Georgia, serif; font-size: 1.3rem; font-weight: bold; color: var(--teal); text-decoration: none; line-height: 1.2; }
+.nav-logo span { display: block; font-family: inherit; font-size: 0.72rem; font-weight: normal; color: var(--text-mid); letter-spacing: 0.04em; text-transform: uppercase; }
+.nav-menu { list-style: none; display: flex; gap: 1.4rem; align-items: center; }
+.nav-menu a { color: var(--text-dark); text-decoration: none; font-size: 0.97rem; padding: 0.5rem 0; display: inline-block; }
+.nav-menu a:hover { color: var(--terracotta); text-decoration: underline; }
+.nav-toggle { display: none; background: none; border: 2px solid var(--border); border-radius: 6px; padding: 0.6rem; cursor: pointer; min-width: 48px; min-height: 48px; }
+.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--teal); margin: 4px 0; }
+
+/* ---- Hero ---- */
+.hero { background: linear-gradient(160deg, var(--teal-light) 0%, var(--offwhite) 100%); padding: 4.5rem 0 4rem; text-align: center; }
+.hero h1 { font-size: 2.7rem; max-width: 18ch; margin: 0 auto 1.2rem; }
+.hero .lede { max-width: 46ch; margin: 0 auto 2rem; font-size: 1.2rem; }
+.hero-meta { margin-top: 1.6rem; color: var(--text-mid); font-size: 1rem; }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block; padding: 1rem 2rem; border-radius: 8px; font-size: 1.05rem;
+  font-weight: 600; text-decoration: none; min-height: 48px; border: 2px solid transparent;
+}
+.btn-primary { background: var(--terracotta); color: #fff; }
+.btn-primary:hover { background: var(--terra-dark); color: #fff; text-decoration: none; }
+.btn-outline { background: transparent; color: var(--teal); border-color: var(--teal); }
+.btn-outline:hover { background: var(--teal); color: #fff; text-decoration: none; }
+
+/* ---- Cards ---- */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.card { background: var(--white); border: 1px solid var(--border); border-left: 5px solid var(--teal); border-radius: 8px; padding: 1.6rem; }
+.card h3 { color: var(--teal); }
+.card p:last-child { margin-bottom: 0; }
+
+/* ---- Feature list ---- */
+.feature-list { list-style: none; padding: 0; }
+.feature-list li { padding: 1rem 0 1rem 2.2rem; border-bottom: 1px solid var(--border); position: relative; }
+.feature-list li:last-child { border-bottom: none; }
+.feature-list li::before { content: "\2713"; position: absolute; left: 0; top: 1rem; color: var(--teal); font-weight: bold; font-size: 1.2rem; }
+
+/* ---- Callout ---- */
+.callout { background: var(--terra-light); border-left: 5px solid var(--terracotta); border-radius: 8px; padding: 2rem; margin: 2rem 0; }
+.callout h2, .callout h3 { color: var(--terra-dark); }
+.callout p:last-child { margin-bottom: 0; }
+
+/* ---- Price ---- */
+.price-box { background: var(--white); border: 2px solid var(--teal); border-radius: 10px; padding: 2rem; text-align: center; margin-bottom: 1.5rem; }
+.price-figure { font-family: Georgia, serif; font-size: 3rem; color: var(--teal); line-height: 1; display: block; }
+.price-sub { color: var(--text-mid); font-size: 1.05rem; }
+
+/* ---- FAQ ---- */
+details { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.85rem; background: var(--white); }
+summary { padding: 1.15rem 1.4rem; cursor: pointer; font-weight: 600; font-size: 1.05rem; color: var(--teal); list-style: none; min-height: 48px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; float: right; font-size: 1.5rem; line-height: 1; color: var(--terracotta); }
+details[open] summary::after { content: "\2013"; }
+details .answer { padding: 0 1.4rem 1.3rem; }
+details .answer p:last-child { margin-bottom: 0; }
+
+/* ---- About ---- */
+.about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 2.25rem; align-items: start; }
+.about-grid img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); }
+
+/* ---- Form ---- */
+.contact-form { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; }
+.contact-form label { display: block; font-weight: 600; margin-bottom: 0.4rem; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 0.85rem; font-size: 1.05rem; font-family: inherit;
+  border: 2px solid var(--border); border-radius: 6px; margin-bottom: 1.25rem; background: var(--white); color: var(--text-dark);
+}
+.contact-form textarea { min-height: 130px; resize: vertical; }
+.form-hint { font-size: 0.95rem; color: var(--text-mid); font-weight: normal; margin-bottom: 0.5rem; }
+
+/* ---- Footer ---- */
+.site-footer { background: var(--teal); color: #E7F0EF; padding: 2.75rem 0; text-align: center; }
+.site-footer a { color: #fff; }
+.site-footer .foot-name { font-family: Georgia, serif; font-size: 1.35rem; color: #fff; display: block; margin-bottom: 0.5rem; }
+.site-footer .fine { font-size: 0.9rem; opacity: 0.8; margin-top: 1.25rem; margin-bottom: 0; }
+
+/* ---- Mobile ---- */
+@media (max-width: 760px) {
+  body { font-size: 17px; }
+  h1, .hero h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  section { padding: 3rem 0; }
+  .nav-toggle { display: block; }
+  .nav-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); flex-direction: column; gap: 0; padding: 0.5rem 1.5rem 1rem; }
+  .nav-menu.open { display: flex; }
+  .nav-menu a { padding: 0.9rem 0; display: block; border-bottom: 1px solid var(--border); }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-grid img { max-width: 200px; }
+}
